@@ -1,0 +1,185 @@
+@back: #EEE;
+@main: #666;
+@font: #666;
+
+*{
+  border-radius: 0 !important;
+}
+body{
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAMElEQVQIW2N89+7dfwYk8P79ewZGZEGQgKCgIEIQJgDSBFaJLAAWvHv37n+QFmQAAEgLHsBFNKP+AAAAAElFTkSuQmCC) repeat;
+  
+  .container{
+    position: absolute;
+    height: 400px;
+    top: 50%;
+    margin-top: -200px;
+    width: 100%;
+  }
+
+  .clock{
+    font-family: 'Black Ops One', cursive;
+    font-size: 250px;
+    color: @main;
+    text-shadow: 1px 1px 1px lighten(@main, 50%);
+    position: relative;
+    width: 800px;
+    margin: 0 auto;
+
+    &.active{
+      text-shadow: 0 0 150px @main;
+    }
+  }
+  .clock #secs{
+    font-size: 100px;
+    color: lighten(@main, 30%);
+    position: absolute;
+    right: -100px;
+    bottom: 63px;
+    text-align: left;
+    width: 87px;
+  }
+  .actions{
+    position: absolute;
+    width: 100%;
+    bottom: 98px;
+    border-top: solid 1px #E0E0E0;
+    padding: 8px 0 0;
+    margin: 0 -15px;
+    .btn{
+      background: @back;
+      color:@font;
+        border-color:lighten(@font, 20%);
+    }
+  }
+  .modal{
+    .modal-content{
+      .modal-header{
+        padding:8px 12px;
+        .close {
+          margin:4px;
+        }
+      }
+      .modal-body{
+        padding: 15px 15px 0;
+      }
+      .modal-footer{
+        margin-top: 0;
+        padding: 8px;
+      }
+    }
+  }
+  .alarm-bar{
+    display: none;
+    position: absolute;
+    bottom: 127px;
+    width: 900px;
+    height: 3px;
+    margin: 0 0 0 -450px;
+    z-index: 1000;
+    left: 50%;
+    background-color: @back;
+    .progress-bar {
+      background-color: @main;
+    }
+  }
+
+  &.dark{
+    @back: #444;
+    @main: #CCC;
+    @font: #AAA;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAL0lEQVQIW2M0Njb+z4AEBAUFGRiRBUEC79+/RwjCBECawCqRBcCCLi4u/0FakAEA2HgUMUlJf9UAAAAASUVORK5CYII=) repeat;
+    
+    .clock{
+      color: @main;
+      text-shadow: 1px 1px 1px lighten(@main, 50%);
+      &.active{
+        text-shadow: 0 0 150px @main;
+      }
+    }
+    .clock #secs{
+      color: darken(@main, 20%);
+    }
+    .actions{
+      border-top: solid 1px @main;
+      .btn{
+        background: @back;
+        color:@font;
+        border-color:darken(@font, 20%);
+      }
+    }
+    .alarm-bar{
+      background-color: @back;
+      .progress-bar {
+        background-color: @main;
+      }
+    }
+  }
+  &.sexy{
+    @back: #222;
+    @main: #F00;
+    @font: #999;
+
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAS0lEQVQYV2OUkpL6z0AEYIQp5OfnByv/+PEjmEbngxWCBHEpgMlhKER3BY0VwhwPcyfMemS3w32NrhhZEUgORSG2YIGZjqEQV9gDAPTJPQ0Mzjx2AAAAAElFTkSuQmCC) repeat;
+    
+    .clock{
+      color: @main;
+      text-shadow: 1px 1px 1px lighten(@main, 50%);
+      &.active{
+        text-shadow: 0 0 150px @main;
+      }
+    }
+    .clock #secs{
+      color: darken(@main, 20%);
+    }
+    .actions{
+      border-top: solid 1px @main;
+      .btn{
+        background: @back;
+        color:@font;
+        border-color:darken(@font, 20%);
+      }
+    }
+    .alarm-bar{
+      background-color: @back;
+      .progress-bar {
+        background-color: @main;
+      }
+    }
+  }
+  &.matrix{
+    @back: #000;
+    @main: #0F0;
+    @font: #666;
+
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAFElEQVQIW2NkYGD4D8R4gZSUFAMAJhcBT5XPFHoAAAAASUVORK5CYII=) repeat;
+    
+       
+    .clock{
+      color: @main;
+      text-shadow: 1px 1px 1px lighten(@main, 50%);
+      &.active{
+        text-shadow: 0 0 150px @main;
+      }
+    }
+    .clock #secs{
+      color: darken(@main, 20%);
+    }
+    .actions{
+      border-top: solid 1px @main;
+      .btn{
+        background: @back;
+        color:@font;
+        border-color:darken(@font, 20%);
+      }
+    }
+    .alarm-bar{
+      background-color: @back;
+      .progress-bar {
+        background-color: @main;
+      }
+    }
+  }
+}
+
+
+
