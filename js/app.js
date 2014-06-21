@@ -3,19 +3,33 @@ $(function(){
 		themes:[
 			{
 				id:"light",
-				alias:"Light Theme"
+				color1:"#EEE",
+				color2:"#666",
+				alias:"Bright Light"
 			},
 			{
 				id:"dark",
-				alias:"Dark Theme"
+				color1:"#444",
+				color2:"#CCC",
+				alias:"Dark Soul"
+			},
+			{
+				id:"dynamic",
+				color1:"#000",
+				color2:"#FFF",
+				alias:"Dynamic"
 			},
 			{
 				id:"sexy",
-				alias:"Sexy Theme"
+				color1:"#222",
+				color2:"#F00",
+				alias:"Sexy Red"
 			},
 			{
 				id:"matrix",
-				alias:"Matrix Theme"
+				color1:"#000",
+				color2:"#0F0",
+				alias:"Green Matrix"
 			}
 		],
 		defaultTheme:"light",
@@ -24,7 +38,8 @@ $(function(){
 				alias:"Default",
 				filename:"sounds/default.ogg"
 			}
-		]
+		],
+		tick:false
 	}
 
 	$.dat={
@@ -37,14 +52,45 @@ $(function(){
 		status:false
 	}
 
+function padhex(n) {
+	if(n<16)
+
+    return "0" + n.toString(16)
+else
+
+    return n.toString(16)
+}
+
 	$.select_theme = function(alias){
 		$("body").attr("class",alias)
+
+		if(alias=="dynamic")
+		{
+			$("body").attr("class","dark");
+			$.settings.tick=function(h,m,s){
+				c1=padhex(Math.round(10.62 * h))
+				c2=padhex(Math.round(4.25 * m))
+				c3=padhex(Math.round(4.25 * s))
+				$("body").css("background","#"+c1+c2+c3)
+				console.log("#"+c1+"."+c2+"."+c3);
+			}
+		}
 	}
 	$.load_themes = function(){
 		$.each($.settings.themes,function(index,theme){
 			$(".btn-theme")
 				.next()
-				.append("<li><a href='#' data-id='"+theme.id+"'>"+theme.alias+"</a></li>")
+				.append(""+
+					"<li>"+
+					"	<a href='#' data-id='"+theme.id+"'>"+
+					"		<span class='fa-stack'>"+
+					"			<i class='fa fa-circle fa-stack-2x' style='color:"+theme.color1+"'></i>"+
+					"			<i class='fa fa-circle fa-stack-1x' style='color:"+theme.color2+"'></i>"+
+					"		</span>"+
+					"		"+theme.alias+""+
+					"	</a>"+
+					"</li>")
+
 		})
 		$(".btn-theme").next().find("a").on("click",function(e){
 			e.preventDefault()
@@ -185,8 +231,16 @@ $(function(){
 
 	$.init=function(){
 		setInterval(function(){
-			$("#time").text(moment().format('HH:mm'))
-	    	$('#secs').text(moment().format(':ss'))
+			var h = moment().format('HH')
+			var m = moment().format('mm')
+			var s = moment().format('ss')
+			$("#time").text(h+":"+m)
+	    	$('#secs').text(":"+s)
+
+	    	if($.settings.tick)
+	    	{
+	    		$.settings.tick(h,m,s)
+	    	}
 		},999)
 		$.load_themes()
 		$.load_times()
