@@ -1,0 +1,27 @@
+{
+  "name": "oclock",
+  "description": "This is an Online Alarm Clock",
+  "version": "1.0.1",
+  "homepage": "",
+  "author": {
+    "name": "ChristosGeorgiou",
+    "url": "https://github.com/ChristosGeorgiou/OClock"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChristosGeorgiou/OClock.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ChristosGeorgiou/OClock/blob/master/LICENCE"
+    }
+  ],
+  "devDependencies": {
+    "grunt-contrib-less": "*",
+    "grunt-contrib-watch": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-uglify" : "*"
+  }
+}
