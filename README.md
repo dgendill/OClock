@@ -3,7 +3,7 @@ OClock
 
 This is an Online Alarm Clock
 
-Used Techonoliges are:
+Used technologies are:
 * Bootstrap
 * jQuery
 * Momentjs
