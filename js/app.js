@@ -233,19 +233,23 @@ $(function(){
         clearInterval($.dat.interv)
     }
 
-    $.init=function(){
-        setInterval(function(){
-            var h = moment().format('HH')
-            var m = moment().format('mm')
-            var s = moment().format('ss')
-            $("#time").text(h+":"+m)
-            $('#secs').text(":"+s)
+    $.update_clock = function() {
+        var m = moment();
+        $("#time").text(m.format('HH:mm'));
+        $('#secs').text(m.format(':ss'));
 
-            if($.settings.tick)
-            {
-                $.settings.tick(h,m,s)
-            }
-        },999)
+        if($.settings.tick) {
+            $.settings.tick(h,m,s)
+        }
+    };
+
+
+    $.init = function(){
+        setInterval(function(){
+            $.update_clock();
+        },999);
+
+        $.update_clock();
         $.load_themes()
         $.load_times()
         $.load_sounds()
@@ -256,4 +260,4 @@ $(function(){
     }
 
     $.init()
-})
+});
